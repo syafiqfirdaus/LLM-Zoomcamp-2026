@@ -1,0 +1,17 @@
+gitsource
+minsearch
+openai
+gitsource
+minsearch
+openai
+tiktoken
+transformers
+sentence-transformers
+torch
+scikit-learn
+pandas
+numpy
+scipy
+datasets
+accelerate
+langchain

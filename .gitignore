@@ -1,0 +1,21 @@
+# Ignore Python virtual environments
+.venv/
+.venv-1/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging
+pip-wheel-metadata/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
