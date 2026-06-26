@@ -28,10 +28,40 @@ class RAGResult:
     usage: Dict[str, Any]
 
 
+def load_dotenv(dotenv_path: Optional[str] = None) -> None:
+    if dotenv_path is None:
+        dotenv_path = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", ".env")
+        )
+    if not os.path.exists(dotenv_path):
+        return
+
+    with open(dotenv_path, "r", encoding="utf-8") as env_file:
+        for line in env_file:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
 def get_openai_client() -> Any:
-    api_key = os.environ.get(OPENAI_API_KEY_ENV)
+    load_dotenv()
+    api_key = (
+        os.environ.get(OPENAI_API_KEY_ENV)
+        or os.environ.get("OPENAI_API_KEY")
+        or os.environ.get("OPENAI_KEY")
+        or os.environ.get("openai_api_key")
+        or os.environ.get("openai_key")
+    )
     if not api_key:
-        raise RuntimeError(f"Set {OPENAI_API_KEY_ENV} before running the script")
+        raise RuntimeError(
+            "Set OPENAI_API_KEY (or OPENAI_KEY) before running the script, "
+            "or add the key to a .env file in the project root."
+        )
 
     if OpenAI is not None:
         return OpenAI(api_key=api_key)
@@ -79,10 +109,22 @@ def response_to_text(response: Any) -> str:
 def response_to_usage(response: Any) -> Dict[str, Any]:
     if response is None:
         return {}
+
+    usage = None
     if hasattr(response, "usage"):
-        return getattr(response, "usage") or {}
-    if isinstance(response, dict):
-        return response.get("usage", {}) or {}
+        usage = getattr(response, "usage")
+    elif isinstance(response, dict):
+        usage = response.get("usage")
+
+    if usage is None:
+        return {}
+    if isinstance(usage, dict):
+        return usage
+    if hasattr(usage, "to_dict"):
+        return usage.to_dict()
+    if hasattr(usage, "__dict__"):
+        return vars(usage)
+
     return {}
 
 
