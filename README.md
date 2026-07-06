@@ -18,6 +18,14 @@ This repository also includes the homework solution for the `02-vector-search` m
 - `02-vector-search/embedder.py`: ONNX embedder implementation used by the solution.
 - `02-vector-search/homework.md`: module homework instructions and answer checklist.
 
+## Homework: 03-orchestration
+
+This repository also includes the completed homework notes for the orchestration module.
+
+- `03-orchestration/homework_answers.md`: concise answers and short explanations for Homework 3, based on the local Kestra runs.
+- The homework covers a few small Kestra flows for chat without RAG, chat with RAG, and a simple agent workflow that summarizes text and logs token usage.
+- It also includes a short note on how prompt design and summary length affect output size and cost.
+
 ### Notes
 
 - The solution uses a local `.env` file only for development and does not track secrets in Git.
