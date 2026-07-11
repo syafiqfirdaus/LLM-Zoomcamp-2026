@@ -26,6 +26,29 @@ This repository also includes the completed homework notes for the orchestration
 - The homework covers a few small Kestra flows for chat without RAG, chat with RAG, and a simple agent workflow that summarizes text and logs token usage.
 - It also includes a short note on how prompt design and summary length affect output size and cost.
 
+## Homework: 04-evaluation
+
+This repository includes the search evaluation homework for the `04-evaluation` module.
+
+- `04-evaluation/homework_solution.py`: Python implementation that evaluates and compares three search methods:
+  - **Keyword Search**: Exact text matching using `minsearch` Index
+  - **Vector Search**: Semantic similarity using ONNX embeddings on chunked documents
+  - **Hybrid Search**: Combines keyword + vector results using Reciprocal Rank Fusion (RRF)
+- `04-evaluation/answers.md`: comprehensive evaluation results with metrics (Precision@5, Recall@5, MRR) and detailed explanations.
+- `04-evaluation/ground-truth.csv`: ground-truth Q&A pairs (360 questions) used for evaluation.
+
+### Key Results
+
+Evaluated on 360 ground-truth Q&A pairs from course lessons:
+
+| Method | Precision@5 | Recall@5 | MRR | Correct/360 |
+|--------|------------|----------|-----|-------------|
+| Keyword Search | 0.1511 | 0.7556 | 0.6038 | 272 |
+| Vector Search | 0.1450 | 0.7250 | 0.5486 | 261 |
+| **Hybrid Search (RRF)** | **0.1711** | **0.8556** | **0.6322** | **308** |
+
+**Winner**: Hybrid Search achieves best overall performance by combining keyword + semantic search.
+
 ### Notes
 
 - The solution uses a local `.env` file only for development and does not track secrets in Git.
