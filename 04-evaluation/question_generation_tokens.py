@@ -48,7 +48,7 @@ generate 5 clear, specific learning questions that help students understand the 
 Lesson: {lesson_name}
 
 Content:
-{lesson_content[:2000]}  # Limit to first 2000 chars to control tokens
+{lesson_content}
 
 Generate exactly 5 questions. Format as a numbered list."""
 
@@ -123,12 +123,12 @@ def main():
             total_output_tokens += usage['output_tokens']
             total_total_tokens += usage['total_tokens']
             
-            print(f"  ✓ Generated successfully")
+            print(f"  [SUCCESS] Generated successfully")
             print(f"    - Input tokens: {usage['input_tokens']}")
             print(f"    - Output tokens: {usage['output_tokens']}")
             print(f"    - Total tokens: {usage['total_tokens']}")
         else:
-            print(f"  ✗ Failed: {result['error']}")
+            print(f"  [FAILED] Failed: {result['error']}")
         print()
     
     # Calculate averages
@@ -218,21 +218,23 @@ Output tokens averaged **{avg_output_tokens:.1f}**, representing the generated q
 
 if __name__ == "__main__":
     try:
+        from pathlib import Path
         avg_input, avg_output, avg_total, report_md = main()
         
-        # Append to answers.md
-        output_file = "answers.md"
+        # Append to answers.md relative to script location
+        script_dir = Path(__file__).parent
+        output_file = script_dir / "answers.md"
         
         print("\n" + "=" * 70)
-        print("Appending results to answers.md...")
+        print(f"Appending results to {output_file}...")
         print("=" * 70)
         
         with open(output_file, "a", encoding="utf-8") as f:
             f.write("\n\n" + "=" * 70 + "\n")
             f.write(report_md)
         
-        print(f"\n✓ Results saved to {output_file}")
-        print(f"\n📊 KEY RESULT:")
+        print(f"\n[OK] Results saved to {output_file}")
+        print(f"\nKEY RESULT:")
         print(f"   Average input tokens across 3 calls: {avg_input:.1f}")
         
     except Exception as e:

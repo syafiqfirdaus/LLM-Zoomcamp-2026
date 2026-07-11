@@ -28,26 +28,16 @@ This repository also includes the completed homework notes for the orchestration
 
 ## Homework: 04-evaluation
 
-This repository includes the search evaluation homework for the `04-evaluation` module.
+Search evaluation homework comparing text, vector, and hybrid (RRF) search over 360 ground-truth Q&A pairs.
 
-- `04-evaluation/homework_solution.py`: Python implementation that evaluates and compares three search methods:
-  - **Keyword Search**: Exact text matching using `minsearch` Index
-  - **Vector Search**: Semantic similarity using ONNX embeddings on chunked documents
-  - **Hybrid Search**: Combines keyword + vector results using Reciprocal Rank Fusion (RRF)
-- `04-evaluation/answers.md`: comprehensive evaluation results with metrics (Precision@5, Recall@5, MRR) and detailed explanations.
-- `04-evaluation/ground-truth.csv`: ground-truth Q&A pairs (360 questions) used for evaluation.
+- `04-evaluation/homework_solution.py`: evaluates keyword, vector, and hybrid (RRF) search methods.
+- `04-evaluation/answers.md`: evaluation results (Hit Rate, MRR) and homework answers.
 
-### Key Results
-
-Evaluated on 360 ground-truth Q&A pairs from course lessons:
-
-| Method | Precision@5 | Recall@5 | MRR | Correct/360 |
-|--------|------------|----------|-----|-------------|
-| Keyword Search | 0.1511 | 0.7556 | 0.6038 | 272 |
-| Vector Search | 0.1450 | 0.7250 | 0.5486 | 261 |
-| **Hybrid Search (RRF)** | **0.1711** | **0.8556** | **0.6322** | **308** |
-
-**Winner**: Hybrid Search achieves best overall performance by combining keyword + semantic search.
+| Method | Hit Rate | MRR |
+|--------|----------|-----|
+| Keyword Search | 0.7583 | 0.5943 |
+| Vector Search | 0.7250 | 0.5486 |
+| **Hybrid Search (RRF k=1)** | **0.8556** | **0.6486** |
 
 ### Notes
 
