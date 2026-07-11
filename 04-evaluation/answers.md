@@ -115,3 +115,103 @@ The **Hybrid Search** method achieved the highest precision@5 with 0.1711.
 - **Embedding model:** Xenova/all-MiniLM-L6-v2 (local ONNX)
 - **Evaluation metric:** Precision@5, Recall@5, MRR@5
 - **Dataset source:** DataTalksClub/llm-zoomcamp (commit 8c1834d)
+
+
+======================================================================
+# Question Generation and Token Tracking Analysis
+
+## Summary
+
+Generated questions for the first 3 lesson pages and tracked OpenAI API token usage.
+
+### Lessons Processed
+
+1. 01-agentic-rag/lessons/01-intro.md
+2. 01-agentic-rag/lessons/02-environment.md
+3. 01-agentic-rag/lessons/03-rag.md
+
+### Token Usage Summary
+
+| Metric | Value |
+|--------|-------|
+| Total Input Tokens (all 3 calls) | 1814 |
+| Total Output Tokens (all 3 calls) | 339 |
+| Total Tokens (all 3 calls) | 2153 |
+| **Avg Input Tokens** | **604.7** |
+| **Avg Output Tokens** | **113.0** |
+| **Avg Total Tokens** | **717.7** |
+| Successful Calls | 3/3 |
+
+## Answer to Question
+
+**Average number of input tokens across the 3 calls: 604.7**
+
+## Detailed Results
+
+
+### Lesson 1: 01-agentic-rag/lessons/01-intro.md
+
+**Token Usage:**
+- Input tokens: 596
+- Output tokens: 127
+- Total tokens: 723
+
+**Generated Questions:**
+
+1. What is a Retrieval-Augmented Generation (RAG) system and what is its purpose in a programming context?
+2. How does a Large Language Model (LLM) work, and what is the role of a prompt in this process?
+3. How does the predictive text feature in a phone's messaging system compare to the functioning of a large language model?
+4. What does it mean to treat LLMs as "black boxes" in this course, and what are the implications of this approach?
+5. Can you summarize the limitations of LLMs as discussed in the course, and provide examples of each?
+
+### Lesson 2: 01-agentic-rag/lessons/02-environment.md
+
+**Token Usage:**
+- Input tokens: 632
+- Output tokens: 112
+- Total tokens: 744
+
+**Generated Questions:**
+
+1. What are the prerequisites required to start this module, and why are they important?
+2. How do you install the Python package manager, `uv`, on different operating systems, and what are its benefits?
+3. How do you create a new project using `uv` and what does `uv init` do?
+4. What are the dependencies needed for this project, and what are their specific roles?
+5. What is the purpose of setting up API keys, and why might it be beneficial to create a separate OpenAI project for the course?
+
+### Lesson 3: 01-agentic-rag/lessons/03-rag.md
+
+**Token Usage:**
+- Input tokens: 586
+- Output tokens: 100
+- Total tokens: 686
+
+**Generated Questions:**
+
+1. What is the purpose of the bot discussed in the module?
+2. Why can't we use a plain LLM to answer course-specific questions?
+3. How does the lack of specific data about our courses affect the responses of the LLM?
+4. What is the difference between a general question and a course-specific question when posed to the LLM?
+5. What does the "Adding context manually" section suggest as a solution to the LLM's inability to answer course-specific questions?
+
+
+## Analysis
+
+The average input tokens across the three API calls for question generation was **604.7 tokens**.
+
+This represents the typical prompt size sent to the LLM when generating questions from lesson content. 
+The input includes:
+- System prompt (instructing the LLM to be a course expert)
+- User prompt with lesson name and content excerpt (~2000 chars)
+- Instructions for output format
+
+Output tokens averaged **113.0**, representing the generated questions and explanations.
+
+## Technical Details
+
+- **Model:** gpt-4
+- **Temperature:** 0.7
+- **Max tokens per request:** 500
+- **Content size per lesson:** First 2000 characters
+- **Number of calls:** 3 (one per lesson)
+- **Success rate:** 100%
