@@ -46,6 +46,14 @@ This repository includes the completed homework for the monitoring module.
 - `05-monitoring/hw5.py`: Python script to instrument the RAG pipeline with OpenTelemetry, capture token usage and costs, and export traces to a local SQLite database.
 - `05-monitoring/answers.md`: Answers to the homework questions based on the script's execution.
 
+## dlt Workshop
+
+This repository includes the completed dlt workshop homework.
+
+- `dlt Workshop/answers.md`: Answers to the homework questions for Logfire instrumentation and DuckDB trace extraction.
+- `dlt Workshop/dlt_pipeline.py`: Script to extract Logfire traces via API into a local DuckDB instance.
+- `dlt Workshop/query_db.py`: Script to query DuckDB for the final answers.
+
 ### Notes
 
 - The solution uses a local `.env` file only for development and does not track secrets in Git.
