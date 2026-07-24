@@ -39,6 +39,13 @@ Search evaluation homework comparing text, vector, and hybrid (RRF) search over 
 | Vector Search | 0.7250 | 0.5486 |
 | **Hybrid Search (RRF k=1)** | **0.8556** | **0.6486** |
 
+## Homework: 05-monitoring
+
+This repository includes the completed homework for the monitoring module.
+
+- `05-monitoring/hw5.py`: Python script to instrument the RAG pipeline with OpenTelemetry, capture token usage and costs, and export traces to a local SQLite database.
+- `05-monitoring/answers.md`: Answers to the homework questions based on the script's execution.
+
 ### Notes
 
 - The solution uses a local `.env` file only for development and does not track secrets in Git.
