@@ -54,7 +54,19 @@ This repository includes the completed dlt workshop homework.
 - `dlt Workshop/dlt_pipeline.py`: Script to extract Logfire traces via API into a local DuckDB instance.
 - `dlt Workshop/query_db.py`: Script to query DuckDB for the final answers.
 
+## Project Attempt 1: QuantPulse AI
+
+End-to-end Quantitative Finance RAG & Algorithmic Trading Assistant.
+
+- `Project Attempt 1/quant_pulse_ai/app.py`: Streamlit Web application featuring Quant Chat Assistant (with LaTeX formulas & code blocks), Black-Scholes options valuation calculator, live ticker price viewer, and real-time analytics telemetry.
+- `Project Attempt 1/quant_pulse_ai/src/ingest.py`: Automated dataset ingestion pipeline.
+- `Project Attempt 1/quant_pulse_ai/src/evaluate_retrieval.py`: Retrieval evaluation benchmark comparing BM25, Dense Vector, Hybrid RRF, Query Rewriting, and Re-ranking (**Hit Rate @ 5 = 100%**, **MRR = 0.9611**).
+- `Project Attempt 1/quant_pulse_ai/src/evaluate_llm.py`: LLM prompt and output evaluation using LLM-as-a-Judge (**Avg score = 4.90 / 5.0**).
+- `Project Attempt 1/quant_pulse_ai/README.md`: Complete project documentation and course peer-review rubric compliance checklist.
+- `Project Attempt 1/quant_pulse_ai/Dockerfile` & `docker-compose.yml`: Containerized application deployment.
+
 ### Notes
 
 - The solution uses a local `.env` file only for development and does not track secrets in Git.
 - The repo has been cleaned to remove any accidental `.env` secrets from history.
+

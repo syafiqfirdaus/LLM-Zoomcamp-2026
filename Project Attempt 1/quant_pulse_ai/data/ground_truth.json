@@ -1,0 +1,152 @@
+[
+  {
+    "question": "How is a European call option calculated under the Black-Scholes formula?",
+    "document_id": "qf-001",
+    "expected_answer": "C = S_0 * N(d1) - K * e^(-r * T) * N(d2)"
+  },
+  {
+    "question": "What are the main assumptions of the Black-Scholes option pricing model?",
+    "document_id": "qf-001",
+    "expected_answer": "Log-normal returns, constant volatility, constant risk-free rate, zero transaction costs, and no dividends."
+  },
+  {
+    "question": "What does option Delta measure and how is Delta hedging performed?",
+    "document_id": "qf-002",
+    "expected_answer": "Delta measures sensitivity to underlying price changes. Delta hedging takes offsetting underlying positions."
+  },
+  {
+    "question": "What is the difference between Delta and Gamma in options trading?",
+    "document_id": "qf-002",
+    "expected_answer": "Delta is dN/dS (sensitivity to price), Gamma is d2N/dS2 (sensitivity of Delta itself to price)."
+  },
+  {
+    "question": "What option Greek measures sensitivity to implied volatility changes?",
+    "document_id": "qf-002",
+    "expected_answer": "Vega measures option price sensitivity to implied volatility."
+  },
+  {
+    "question": "Why is the Binomial Tree model preferred for pricing American options over Black-Scholes?",
+    "document_id": "qf-003",
+    "expected_answer": "Because Binomial Trees support early exercise evaluation at discrete lattice nodes."
+  },
+  {
+    "question": "How is risk-neutral probability p computed in a Binomial Tree step?",
+    "document_id": "qf-003",
+    "expected_answer": "p = (e^(r * delta_t) - d) / (u - d)"
+  },
+  {
+    "question": "When should Monte Carlo simulation be used instead of closed-form formulas?",
+    "document_id": "qf-004",
+    "expected_answer": "For path-dependent options (Asian, Barrier) and complex multi-asset stochastic simulations."
+  },
+  {
+    "question": "What formula generates stochastic stock paths in geometric Brownian motion Monte Carlo?",
+    "document_id": "qf-004",
+    "expected_answer": "S(t + delta_t) = S(t) * exp((r - 0.5 * sigma^2) * delta_t + sigma * sqrt(delta_t) * Z)"
+  },
+  {
+    "question": "What is Value at Risk (VaR) and what are its common calculation methodologies?",
+    "document_id": "qf-005",
+    "expected_answer": "VaR is max expected loss at confidence level. Methods: Parametric, Historical Simulation, Monte Carlo."
+  },
+  {
+    "question": "Why is Expected Shortfall (CVaR) considered superior to Value at Risk?",
+    "document_id": "qf-005",
+    "expected_answer": "CVaR captures tail risk severity beyond the VaR cutoff and is subadditive (coherent)."
+  },
+  {
+    "question": "How does the Sortino Ratio differ from the Sharpe Ratio?",
+    "document_id": "qf-006",
+    "expected_answer": "Sharpe divides by total volatility; Sortino divides by downside volatility only."
+  },
+  {
+    "question": "How is Maximum Drawdown (MDD) calculated for a portfolio?",
+    "document_id": "qf-006",
+    "expected_answer": "MDD = (Peak - Trough) / Peak"
+  },
+  {
+    "question": "What is the Efficient Frontier in Markowitz Mean-Variance optimization?",
+    "document_id": "qf-007",
+    "expected_answer": "The set of optimal portfolios offering maximum expected return for each risk level."
+  },
+  {
+    "question": "How is portfolio variance expressed using asset weight vector w and covariance matrix Sigma?",
+    "document_id": "qf-007",
+    "expected_answer": "Portfolio Variance = w^T * Sigma * w"
+  },
+  {
+    "question": "How does statistical arbitrage pairs trading work?",
+    "document_id": "qf-008",
+    "expected_answer": "Find cointegrated assets, monitor spread Z-score, short overvalued and long undervalued when Z > threshold."
+  },
+  {
+    "question": "Which statistical test verifies cointegration between two asset price series?",
+    "document_id": "qf-008",
+    "expected_answer": "Augmented Dickey-Fuller (ADF) test on the spread."
+  },
+  {
+    "question": "What technical indicators are commonly used in momentum trend following strategies?",
+    "document_id": "qf-009",
+    "expected_answer": "Moving Average Crossovers, Relative Strength Index (RSI), and MACD."
+  },
+  {
+    "question": "What does a Golden Cross signal in quantitative momentum trading?",
+    "document_id": "qf-009",
+    "expected_answer": "Short-term moving average (e.g. 50-day) crossing above long-term moving average (e.g. 200-day)."
+  },
+  {
+    "question": "What are the three components of Return on Equity (ROE) in DuPont Analysis?",
+    "document_id": "qf-010",
+    "expected_answer": "Net Profit Margin, Asset Turnover, and Financial Leverage."
+  },
+  {
+    "question": "Why is EV/EBITDA often preferred over P/E ratio for company valuation?",
+    "document_id": "qf-010",
+    "expected_answer": "EV/EBITDA is capital-structure-neutral and excludes non-cash depreciation differences."
+  },
+  {
+    "question": "What is Implied Volatility and how is it obtained?",
+    "document_id": "qf-011",
+    "expected_answer": "IV is obtained by inverting option market prices using Black-Scholes."
+  },
+  {
+    "question": "What causes the Volatility Smile or Skew in options markets?",
+    "document_id": "qf-011",
+    "expected_answer": "Higher demand for OTM downside put options due to crash sensitivity."
+  },
+  {
+    "question": "What is High-Frequency Trading (HFT) and what strategies does it use?",
+    "document_id": "qf-012",
+    "expected_answer": "Sub-millisecond trading using order book dynamics, market making, and latency arbitrage."
+  },
+  {
+    "question": "What is the formula for asset expected return under CAPM?",
+    "document_id": "qf-013",
+    "expected_answer": "E(R_i) = R_f + beta_i * (E(R_m) - R_f)"
+  },
+  {
+    "question": "How is stock Beta defined in relation to market return?",
+    "document_id": "qf-013",
+    "expected_answer": "beta_i = Cov(R_i, R_m) / Var(R_m)"
+  },
+  {
+    "question": "What is Modified Duration and what does it measure?",
+    "document_id": "qf-014",
+    "expected_answer": "Modified Duration = Macaulay Duration / (1 + y/k), measuring % price change per unit yield shift."
+  },
+  {
+    "question": "Why is bond Convexity important when yields change significantly?",
+    "document_id": "qf-014",
+    "expected_answer": "Convexity accounts for the non-linear second-order relationship between price and yield."
+  },
+  {
+    "question": "What is Look-ahead bias in algorithmic trading backtesting?",
+    "document_id": "qf-015",
+    "expected_answer": "Using information that was not available at the time the simulated trade would have occurred."
+  },
+  {
+    "question": "What are four major hazards when backtesting algorithmic trading strategies?",
+    "document_id": "qf-015",
+    "expected_answer": "Look-ahead bias, Survivorship bias, Transaction cost neglect, and Overfitting."
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "qf-001",
+    "title": "Black-Scholes Option Pricing Model",
+    "category": "Derivatives & Options",
+    "content": "The Black-Scholes model is a mathematical model for pricing European call and put options. It assumes stock prices follow a geometric Brownian motion with constant drift and volatility. The call option price C is calculated as C = S_0 * N(d_1) - K * e^(-r * T) * N(d_2), where d_1 = (ln(S_0 / K) + (r + sigma^2 / 2) * T) / (sigma * sqrt(T)) and d_2 = d_1 - sigma * sqrt(T). Key assumptions include log-normal underlying returns, zero transaction costs, constant risk-free rate r, constant volatility sigma, and no dividend payouts during the option lifecycle.",
+    "keywords": ["Black-Scholes", "European Options", "Call Option", "Put Option", "d1", "d2", "Geometric Brownian Motion", "Risk-Free Rate"]
+  },
+  {
+    "id": "qf-002",
+    "title": "Option Greeks: Delta, Gamma, Vega, Theta, and Rho",
+    "category": "Derivatives & Options",
+    "content": "The Greeks measure the sensitivity of option prices to underlying market parameters. Delta measures the rate of change of option value with respect to changes in the underlying asset's price (dN/dS). Gamma measures the rate of change of Delta with respect to the underlying price (d2N/dS2). Vega quantifies sensitivity to changes in implied volatility (dN/dsigma). Theta measures time decay, reflecting the loss in option value per day as expiration approaches. Rho measures sensitivity to changes in the risk-free interest rate (dN/dr). Delta hedging involves taking an offsetting position in the underlying asset to achieve a neutral Delta portfolio.",
+    "keywords": ["Greeks", "Delta", "Gamma", "Vega", "Theta", "Rho", "Delta Hedging", "Time Decay", "Implied Volatility"]
+  },
+  {
+    "id": "qf-003",
+    "title": "Binomial Tree Model for Option Pricing",
+    "category": "Derivatives & Options",
+    "content": "The Binomial Tree model is a discrete-time valuation approach useful for pricing American options, which can be exercised early. Over each step delta_t, the underlying stock price can move up by factor u or down by factor d = 1/u. The risk-neutral probability of an up-move is p = (e^(r * delta_t) - d) / (u - d). Valuation starts at maturity T and works backward to node t=0 using backward induction. For American options, at each node the holder compares the early exercise value (S - K for calls) against the continuation value discounted at rate r.",
+    "keywords": ["Binomial Tree", "American Options", "Early Exercise", "Backward Induction", "Risk-Neutral Probability", "Lattice Model"]
+  },
+  {
+    "id": "qf-004",
+    "title": "Monte Carlo Methods in Quantitative Finance",
+    "category": "Quantitative Methods",
+    "content": "Monte Carlo simulation is a computational method used to price path-dependent options (such as Asian, Barrier, and Lookback options) and simulate financial risk scenarios. It simulates thousands of stochastic price paths S(t) using geometric Brownian motion: S(t + delta_t) = S(t) * exp((r - 0.5 * sigma^2) * delta_t + sigma * sqrt(delta_t) * Z), where Z is a standard normal random variable ~ N(0,1). The discounted payoff average across all paths yields the Monte Carlo estimate. Variance reduction techniques such as antithetic variates and control variates are used to improve convergence efficiency.",
+    "keywords": ["Monte Carlo", "Path-dependent Options", "Asian Options", "Stochastic Simulation", "Geometric Brownian Motion", "Antithetic Variates", "Variance Reduction"]
+  },
+  {
+    "id": "qf-005",
+    "title": "Value at Risk (VaR) and Expected Shortfall (CVaR)",
+    "category": "Risk Management",
+    "content": "Value at Risk (VaR) measures the maximum expected loss over a specific time horizon at a given confidence level (e.g., 95% or 99%). Common calculation approaches include Parametric (Variance-Covariance) VaR assuming normal returns, Historical Simulation VaR using historical return distributions, and Monte Carlo VaR. Expected Shortfall (ES or Conditional VaR / CVaR) addresses VaR's flaw of ignoring tail loss severity by computing the expected loss given that loss exceeds the VaR threshold. CVaR is a coherent risk measure satisfying subadditivity.",
+    "keywords": ["Value at Risk", "VaR", "Expected Shortfall", "CVaR", "Risk Management", "Tail Risk", "Historical Simulation", "Parametric VaR"]
+  },
+  {
+    "id": "qf-006",
+    "title": "Sharpe Ratio, Sortino Ratio, and Maximum Drawdown",
+    "category": "Portfolio Performance & Risk",
+    "content": "Risk-adjusted performance metrics evaluate return relative to taken risk. The Sharpe Ratio is defined as (R_p - R_f) / sigma_p, measuring excess return per unit of total portfolio volatility. The Sortino Ratio refines Sharpe by penalizing only downside volatility: (R_p - R_f) / sigma_downside, making it superior for non-symmetric return distributions. Maximum Drawdown (MDD) measures the maximum peak-to-trough decline in portfolio equity before a new peak is attained: MDD = (Peak - Trough) / Peak.",
+    "keywords": ["Sharpe Ratio", "Sortino Ratio", "Maximum Drawdown", "Risk-Adjusted Return", "Downside Risk", "Performance Metrics"]
+  },
+  {
+    "id": "qf-007",
+    "title": "Markowitz Mean-Variance Portfolio Optimization",
+    "category": "Portfolio Management",
+    "content": "Modern Portfolio Theory (MPT), developed by Harry Markowitz, formulates portfolio selection as a mean-variance optimization problem. Investors seek to maximize expected return for a given level of risk or minimize risk for a target return. The Efficient Frontier represents the set of optimal portfolios offering the highest expected return for each risk level. Portfolio variance is computed as w^T * Sigma * w, where w is the vector of asset weights and Sigma is the variance-covariance matrix. Incorporating a risk-free asset leads to the Capital Allocation Line (CAL) and the Tangency Portfolio.",
+    "keywords": ["Markowitz", "Portfolio Optimization", "Efficient Frontier", "Mean-Variance", "Covariance Matrix", "Tangency Portfolio", "MPT"]
+  },
+  {
+    "id": "qf-008",
+    "title": "Mean-Reversion and Pairs Trading Strategies",
+    "category": "Algorithmic Trading",
+    "content": "Pairs trading is a market-neutral statistical arbitrage strategy relying on mean-reversion. It identifies two historically co-integrated financial assets (such as Coke and Pepsi). Cointegration is verified using the Augmented Dickey-Fuller (ADF) test on the spread S_t = Asset_A - beta * Asset_B. When the spread normalized Z-score exceeds a threshold (e.g., +2.0), the overvalued asset is shorted and the undervalued asset is bought long, expecting convergence back to historical mean Z=0.",
+    "keywords": ["Pairs Trading", "Mean Reversion", "Statistical Arbitrage", "Cointegration", "ADF Test", "Z-Score", "Market Neutral"]
+  },
+  {
+    "id": "qf-009",
+    "title": "Momentum Trading and Trend Following Indicators",
+    "category": "Algorithmic Trading",
+    "content": "Momentum strategies exploit market trends by buying assets with strong positive recent returns and shorting assets with weak recent returns. Key technical indicators include Moving Average Crossovers (e.g., 50-day crossing above 200-day Golden Cross), Relative Strength Index (RSI) measuring speed and change of price movements on a 0-100 scale, and Moving Average Convergence Divergence (MACD). Trend-following trading systems employ stop-loss mechanisms and volatility position sizing (ATR - Average True Range) to protect capital during market regime shifts.",
+    "keywords": ["Momentum Trading", "Trend Following", "RSI", "MACD", "Moving Average", "Golden Cross", "ATR", "Technical Analysis"]
+  },
+  {
+    "id": "qf-010",
+    "title": "Financial Ratio Analysis and Fundamental Valuation",
+    "category": "Financial Analysis",
+    "content": "Financial ratios assess company operational efficiency, liquidity, profitability, and valuation. Price-to-Earnings (P/E) compares market value per share to earnings per share. Enterprise Value to EBITDA (EV/EBITDA) evaluates overall business valuation capital-structure-neutrally. Free Cash Flow (FCF) measures cash generated after capital expenditures. DuPont Analysis decomposes Return on Equity (ROE) into three components: Net Profit Margin * Asset Turnover * Financial Leverage, pin-pointing drivers of profitability.",
+    "keywords": ["P/E Ratio", "EV/EBITDA", "Free Cash Flow", "DuPont Analysis", "ROE", "Fundamental Valuation", "Financial Ratios"]
+  },
+  {
+    "id": "qf-011",
+    "title": "Implied Volatility, Volatility Smile, and Surface",
+    "category": "Derivatives & Options",
+    "content": "Implied Volatility (IV) is the volatility value derived from market option prices by inverting the Black-Scholes equation. In real markets, IV varies by strike price and maturity, creating the Volatility Smile or Skew. Out-of-the-money put options often trade at higher IV due to crash sensitivity and downside hedging demand. A Volatility Surface maps IV across both strike prices (moneyness) and time-to-expiration, serving as a critical input for pricing exotic derivatives and managing volatility arbitrage strategies.",
+    "keywords": ["Implied Volatility", "Volatility Smile", "Volatility Skew", "Volatility Surface", "Moneyness", "Options Arbitrage"]
+  },
+  {
+    "id": "qf-012",
+    "title": "Statistical Arbitrage and High-Frequency Trading Foundations",
+    "category": "Algorithmic Trading",
+    "content": "Statistical Arbitrage (StatArb) uses mathematical and quantitative models to trade portfolios of securities exploiting statistical mispricings. Strategies include index arbitrage, ETF arbitrage, and factor-based equity market neutral models. High-Frequency Trading (HFT) operates on millisecond/microsecond execution speeds, taking advantage of order book dynamics, market microstructure, latency arbitrage, and market making spreads.",
+    "keywords": ["Statistical Arbitrage", "StatArb", "High-Frequency Trading", "HFT", "Market Microstructure", "Order Book", "Market Making"]
+  },
+  {
+    "id": "qf-013",
+    "title": "Capital Asset Pricing Model (CAPM) and Beta",
+    "category": "Financial Economics",
+    "content": "The Capital Asset Pricing Model (CAPM) calculates expected return of an asset based on its systematic risk: E(R_i) = R_f + beta_i * (E(R_m) - R_f), where R_f is risk-free rate and E(R_m) is expected market return. Beta measures systematic risk sensitivity relative to the broader market: beta_i = Cov(R_i, R_m) / Var(R_m). Assets with beta > 1 are more volatile than the market, whereas beta < 1 indicates lower systematic sensitivity. Unsystematic (firm-specific) risk can be diversified away in a well-constructed portfolio.",
+    "keywords": ["CAPM", "Beta", "Systematic Risk", "Market Risk Premium", "Expected Return", "Covariance"]
+  },
+  {
+    "id": "qf-014",
+    "title": "Fixed Income Duration and Convexity",
+    "category": "Fixed Income",
+    "content": "Duration measures the sensitivity of a bond's price to interest rate changes. Macaulay Duration represents the weighted average time until expected cash flows are received. Modified Duration equals Macaulay Duration / (1 + y/k), quantifying approximate percentage price change for a 100 bps shift in yield. Convexity measures the second derivative (curvature) of bond price sensitivity, accounting for non-linear price adjustment when interest rates move significantly.",
+    "keywords": ["Fixed Income", "Bond Duration", "Macaulay Duration", "Modified Duration", "Convexity", "Yield Curve", "Interest Rate Risk"]
+  },
+  {
+    "id": "qf-015",
+    "title": "Algorithmic Backtesting Pitfalls and Overfitting",
+    "category": "Quantitative Methods",
+    "content": "Backtesting evaluates trading strategies on historical data. Common pitfalls include Look-ahead Bias (using data not known at trading time), Survivorship Bias (excluding delisted or bankrupt companies), Transaction Cost Neglect (omitting slippage and commissions), and Overfitting (curve-fitting strategy parameters to past noise). Mitigation techniques include out-of-sample testing, walk-forward optimization, and Deflated Sharpe Ratio calculation.",
+    "keywords": ["Backtesting", "Overfitting", "Look-ahead Bias", "Survivorship Bias", "Walk-Forward Optimization", "Deflated Sharpe Ratio"]
+  }
+]

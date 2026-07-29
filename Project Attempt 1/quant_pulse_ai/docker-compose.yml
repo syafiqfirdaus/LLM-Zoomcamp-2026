@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  quant_pulse_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quant_pulse_app
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - LOGFIRE_TOKEN=${LOGFIRE_TOKEN}
+    volumes:
+      - ./data:/app/data
+      - ./quant_pulse.db:/app/quant_pulse.db
+    restart: unless-stopped
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: quant_pulse_elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
