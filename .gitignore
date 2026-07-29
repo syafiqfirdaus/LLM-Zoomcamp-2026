@@ -38,3 +38,5 @@ build/
 models/
 *.duckdb
 .dlt/
+*.db
+

@@ -2,7 +2,11 @@ import json
 import os
 import time
 from typing import List, Dict, Any, Tuple
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(*args, **kwargs):
+        pass
 from openai import OpenAI
 from search import load_kb_data, MinSearchEngine, VectorSearchEngine, HybridSearchEngine
 
@@ -18,8 +22,6 @@ def get_openai_client():
         load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), ".env"))
         api_key = os.getenv("OPENAI_API_KEY")
     return OpenAI(api_key=api_key)
-
-client = get_openai_client()
 
 PROMPT_V1_SIMPLE = """
 Answer the user question based on the following context.
