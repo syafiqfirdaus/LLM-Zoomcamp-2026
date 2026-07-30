@@ -9,25 +9,25 @@ QuantPulse AI is an end-to-end LLM application combining Retrieval-Augmented Gen
 
 ## App Screenshots
 
-### Quant Assistant
+### Quant Assistant Overview
 
-![QuantPulse AI Quant Assistant](./quant-assistant.png)
+![QuantPulse AI Quant Assistant Overview](./Pictures/QuantPulse%20AI%20Assistant_1.PNG)
 
 ### Black-Scholes Calculator
 
-![QuantPulse AI Black-Scholes Calculator](./black-scholes-calculator.png)
+![QuantPulse AI Black-Scholes Calculator](./Pictures/Interactive%20Black-Scholes%20Calculator%20%26%20Ticker%20Lookup.PNG)
 
-### Live Market Ticker Viewer
+### Quant Assistant Formula Rendering
 
-![QuantPulse AI Live Market Ticker Viewer](./live-market-ticker-viewer.png)
+![QuantPulse AI Quant Assistant Formula Rendering](./Pictures/QuantPulse%20AI%20Assistant_2.PNG)
 
 ### Monitoring Dashboard
 
-![QuantPulse AI Monitoring Dashboard](./monitoring-dashboard.png)
+![QuantPulse AI Monitoring Dashboard](./Pictures/Application%20Analytics%20%26%20Monitoring%20Dashboard.PNG)
 
-### Full Main Dashboard
+### Quant Assistant Practical Insights
 
-![QuantPulse AI Main Dashboard](./quantpulse-main-dashboard.png)
+![QuantPulse AI Quant Assistant Practical Insights](./Pictures/QuantPulse%20AI%20Assistant_3.PNG)
 
 ---
 

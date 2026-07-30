@@ -4,6 +4,7 @@ import os
 import sys
 import uuid
 import json
+import re
 import numpy as np
 import scipy.stats as si
 import plotly.graph_objects as go
@@ -57,6 +58,31 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+def render_message_content(content: str) -> None:
+    """Render markdown text while converting LaTeX snippets into visible math."""
+    pattern = r"(\\\[(.*?)\\\]|\$\$(.*?)\$\$|\\\((.*?)\\\))"
+    cursor = 0
+
+    for match in re.finditer(pattern, content, flags=re.DOTALL):
+        start, end = match.span()
+        if start > cursor:
+            text_segment = content[cursor:start]
+            if text_segment.strip():
+                st.markdown(text_segment)
+
+        latex_expr = next(group for group in match.groups()[1:] if group is not None)
+        latex_expr = latex_expr.strip()
+        if latex_expr:
+            st.latex(latex_expr)
+
+        cursor = end
+
+    if cursor < len(content):
+        text_segment = content[cursor:]
+        if text_segment.strip():
+            st.markdown(text_segment)
+
 # Initialize Database and Engines (Cached)
 @st.cache_resource
 def initialize_system():
@@ -105,7 +131,7 @@ with tab1:
     # Render Chat History
     for idx, msg in enumerate(st.session_state.messages):
         with st.chat_message(msg["role"]):
-            st.markdown(msg["content"])
+            render_message_content(msg["content"])
             if "sources" in msg and msg["sources"]:
                 with st.expander("📚 Retrieved Knowledge Base Sources"):
                     for src in msg["sources"]:
@@ -127,7 +153,7 @@ with tab1:
         # Add user message
         st.session_state.messages.append({"role": "user", "content": user_query})
         with st.chat_message("user"):
-            st.markdown(user_query)
+            render_message_content(user_query)
 
         # Process Query
         with st.chat_message("assistant"):
@@ -172,7 +198,7 @@ with tab1:
                 )
 
                 # Display Assistant Answer
-                st.markdown(answer)
+                render_message_content(answer)
                 
                 with st.expander("📚 Retrieved Knowledge Base Sources"):
                     for src in retrieved:
