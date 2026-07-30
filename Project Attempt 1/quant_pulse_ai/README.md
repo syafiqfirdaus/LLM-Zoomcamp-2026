@@ -7,6 +7,30 @@ QuantPulse AI is an end-to-end LLM application combining Retrieval-Augmented Gen
 
 ---
 
+## App Screenshots
+
+### Quant Assistant
+
+![QuantPulse AI Quant Assistant](./quant-assistant.png)
+
+### Black-Scholes Calculator
+
+![QuantPulse AI Black-Scholes Calculator](./black-scholes-calculator.png)
+
+### Live Market Ticker Viewer
+
+![QuantPulse AI Live Market Ticker Viewer](./live-market-ticker-viewer.png)
+
+### Monitoring Dashboard
+
+![QuantPulse AI Monitoring Dashboard](./monitoring-dashboard.png)
+
+### Full Main Dashboard
+
+![QuantPulse AI Main Dashboard](./quantpulse-main-dashboard.png)
+
+---
+
 ## 🎯 Problem Statement
 
 Quantitative finance spans complex mathematical concepts (e.g., Black-Scholes PDE, stochastic calculus, GARCH, Delta hedging, Value at Risk). Novice traders and finance students often struggle to translate raw financial formulas into practical trading strategies or evaluate risk metrics accurately.

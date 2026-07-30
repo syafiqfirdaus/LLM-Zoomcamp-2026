@@ -37,12 +37,22 @@ class QueryRewriter:
 class MinSearchEngine:
     """BM25 Keyword Search Engine powered by minsearch."""
     def __init__(self, docs: List[Dict[str, Any]]):
-        self.docs = docs
+        # minsearch/sklearn text vectorizers expect plain strings, so normalize
+        # keyword lists into a searchable string representation first.
+        self.docs = [self._normalize_doc(doc) for doc in docs]
         self.index = minsearch.Index(
             text_fields=["title", "content", "category", "keywords"],
             keyword_fields=["id", "category"]
         )
-        self.index.fit(docs)
+        self.index.fit(self.docs)
+
+    @staticmethod
+    def _normalize_doc(doc: Dict[str, Any]) -> Dict[str, Any]:
+        normalized = dict(doc)
+        keywords = normalized.get("keywords", [])
+        if isinstance(keywords, list):
+            normalized["keywords"] = " ".join(str(keyword) for keyword in keywords)
+        return normalized
 
     def search(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
         results = self.index.search(

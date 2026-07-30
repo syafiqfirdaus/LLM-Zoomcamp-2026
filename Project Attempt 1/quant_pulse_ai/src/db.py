@@ -46,7 +46,7 @@ def init_db():
     conn.close()
 
 def save_query_log(
-    log_id: str,
+    query_id: str,
     user_query: str,
     rewritten_query: str,
     search_method: str,
@@ -65,7 +65,7 @@ def save_query_log(
             retrieved_doc_ids, answer, model_name, latency_ms, prompt_tokens, completion_tokens
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
-        log_id,
+        query_id,
         time.time(),
         user_query,
         rewritten_query,
