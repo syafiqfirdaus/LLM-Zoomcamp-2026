@@ -65,6 +65,16 @@ End-to-end Quantitative Finance RAG & Algorithmic Trading Assistant.
 - `Project Attempt 1/quant_pulse_ai/README.md`: Complete project documentation and course peer-review rubric compliance checklist.
 - `Project Attempt 1/quant_pulse_ai/Dockerfile` & `docker-compose.yml`: Containerized application deployment.
 
+## Peer Evaluation Summary
+
+This repository also includes a short record of three peer evaluations completed for the Project Attempt 1 review requirement, using the screenshot-based rubric stored in `Evaluate Project Attempt 1/Review Criteria/`.
+
+- `Evaluate Project Attempt 1/amrmancy-review.md`: Review of `amrmancy/llm-zoomcamp-project-2026`, scored `20/26`. Strong across the main rubric; deductions were mainly for no shipped query rewriting and no cloud/bonus items.
+- `Evaluate Project Attempt 1/omarlopesino-review.md`: Review of `omarlopesino/musical-genres-rag`, scored `18/26`. Strong engineering breadth, but partial credit on RAG evaluation and no evidence of reranking/query rewriting in the final stack.
+- `Evaluate Project Attempt 1/rdanielsstat-review.md`: Review of `rdanielsstat/public-health-evidence-assistant`, scored `20/26`. Excellent evaluation depth and best-practice coverage; the main deduction was containerization because ingestion is not fully run through `docker-compose`.
+
+Across the three projects, the strongest common patterns were clear problem framing, multi-stage retrieval pipelines, and good monitoring or documentation. The most common missed points were cloud deployment/bonus items and, in some cases, incomplete adoption of query rewriting, reranking, or full-stack containerization.
+
 ### Notes
 
 - The solution uses a local `.env` file only for development and does not track secrets in Git.
